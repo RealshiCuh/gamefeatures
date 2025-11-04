@@ -98,11 +98,12 @@
     </div>
 
     <script>
-        const FEATURES_URL = 'https://github.com/RealshiCuh/gamefeatures/blob/main/main/features.json';
-        const CACHE_BUSTER = true; // Set to  true bc to always get fresh data
+        const FEATURES_URL = 'https://raw.githubusercontent.com/RealshiCuh/gamefeatures/main/main/features.json';
+        const CACHE_BUSTER = true; // Set to true to always get fresh data
 
         async function loadFeatures() {
             try {
+                // Add timestamp to prevent caching
                 const url = CACHE_BUSTER ? `${FEATURES_URL}?t=${Date.now()}` : FEATURES_URL;
                 
                 const response = await fetch(url, {
@@ -119,7 +120,7 @@
             } catch (error) {
                 document.getElementById('content').innerHTML = `
                     <div class="error">
-                        Couldnt Load Features Will Be Fixed Soon!
+                        Failed to load features. Please check your JSON file.
                         <br><small>${error.message}</small>
                     </div>
                 `;
