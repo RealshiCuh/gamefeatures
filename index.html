@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda Tag Features</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 40px 20px;
+            background: transparent;
+            color: #1a1a1a;
+            line-height: 1.8;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        html {
+            background: transparent;
+        }
+
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            overflow: hidden;
+            border-right: 3px solid #1a1a1a;
+            white-space: nowrap;
+            animation: typing 2s steps(17) 0.5s forwards, blink 0.75s step-end infinite;
+            width: 0;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: #1a1a1a; }
+        }
+        
+        .section {
+            margin-bottom: 24px;
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .section:nth-child(2) { animation-delay: 2.5s; }
+        .section:nth-child(3) { animation-delay: 2.7s; }
+        .section:nth-child(4) { animation-delay: 2.9s; }
+        .section:nth-child(5) { animation-delay: 3.1s; }
+        .section:nth-child(6) { animation-delay: 3.3s; }
+        .section:nth-child(7) { animation-delay: 3.5s; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section-title {
+            font-size: 16px;
+            margin-bottom: 8px;
+            font-weight: 400;
+            color: #2a2a2a;
+            letter-spacing: 0.3px;
+        }
+        
+        .feature {
+            margin-left: 18px;
+            margin-bottom: 3px;
+            font-size: 14px;
+            font-weight: 300;
+            color: #3a3a3a;
+        }
+        
+        .note {
+            margin-left: 18px;
+            font-size: 13px;
+            color: #888;
+            margin-top: 2px;
+            margin-bottom: 3px;
+            font-weight: 300;
+        }
+        
+        .sub-feature {
+            margin-left: 36px;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 2px;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles"></div>
+    
+    <div class="container">
+        <h1>Boda Tag Features</h1>
+        
+        <div class="section">
+            <div class="section-title">-> Features</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">`-> Movement <-`</div>
+            <div class="feature">* No Gravity</div>
+            <div class="feature">* Fly</div>
+            <div class="feature">* Head Fly</div>
+            <div class="feature">* B Fly</div>
+            <div class="feature">* Up And Down</div>
+            <div class="feature">* Platforms</div>
+            <div class="feature">* TP Gun</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">`-> Player <-`</div>
+            <div class="feature">* LongArms</div>
+            <div class="feature">* Set Name Too No Name</div>
+            <div class="feature">* Change Name</div>
+            <div class="feature">* Change Identity</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">`-> Room <-`</div>
+            <div class="feature">* Join Random</div>
+            <div class="feature">* Disconnect</div>
+            <div class="feature">* Reconnect</div>
+            <div class="feature">* Room Info</div>
+            <div class="feature">* Room Stats</div>
+            <div class="feature">* Close Room</div>
+            <div class="feature">* Open Room</div>
+            <div class="feature">* Hide Room</div>
+            <div class="feature">* Show Room</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">`-> Exploits <-`</div>
+            <div class="feature">* Spawn Bunny ( NW )</div>
+            <div class="feature">* Spawn Whisk ( NW )</div>
+            <div class="feature">* Set Master</div>
+            <div class="feature">* Crash All</div>
+            <div class="feature">* Clear Cache</div>
+            <div class="feature">* Kick All ( NW )</div>
+            <div class="feature">* Spam Rpcs</div>
+            <div class="feature">* Destroy Players</div>
+            <div class="feature">* Remove All Rpcs</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">`-> Settings <-`</div>
+            <div class="feature">* Show FPS</div>
+            <div class="note">-# show fps has a bug will be fixed in later apks js didnt fix it w dis one</div>
+            <div class="feature">* Rgb Gui</div>
+            <div class="feature">* Platform Settings</div>
+            <div class="sub-feature">-# Change Color</div>
+            <div class="sub-feature">-# Change Shape</div>
+            <div class="sub-feature">-# Increase Size</div>
+            <div class="sub-feature">-# Decrease Size</div>
+        </div>
+    </div>
+
+    <script>
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 40;
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            const size = Math.random() * 4 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            
+            const duration = Math.random() * 20 + 15;
+            const delay = Math.random() * 5;
+            
+            particle.style.animation = `float ${duration}s ${delay}s infinite ease-in-out`;
+            
+            particlesContainer.appendChild(particle);
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            createParticle();
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% {
+                    transform: translate(0, 0) scale(1);
+                    opacity: 0.3;
+                }
+                25% {
+                    transform: translate(20px, -30px) scale(1.1);
+                    opacity: 0.6;
+                }
+                50% {
+                    transform: translate(-15px, -60px) scale(0.9);
+                    opacity: 0.4;
+                }
+                75% {
+                    transform: translate(25px, -40px) scale(1.05);
+                    opacity: 0.5;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
