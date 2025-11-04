@@ -2,7 +2,7 @@
   "gameName": "Boda Tag",
   "sections": [
     {
-      "title": "Testing",
+      "title": "Movement",
       "features": [
         { "name": "No Gravity" },
         { "name": "Fly" },
@@ -14,7 +14,7 @@
       ]
     },
     {
-      "title": "Testing",
+      "title": "Player",
       "features": [
         { "name": "LongArms" },
         { "name": "Set Name Too No Name" },
