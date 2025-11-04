@@ -2,7 +2,7 @@
   "gameName": "Boda Tag",
   "sections": [
     {
-      "title": "Movement",
+      "title": "Testing",
       "features": [
         { "name": "No Gravity" },
         { "name": "Fly" },
