@@ -64,72 +64,76 @@
             color: #444;
             margin-bottom: 1px;
         }
+
+        .loading {
+            text-align: center;
+            color: #666;
+            padding: 20px;
+        }
+
+        .error {
+            color: #d32f2f;
+            padding: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Boda Tag Features</h1>
-        
-        <div class="section">
-            <div class="section-title">-> Features</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Movement <-`</div>
-            <div class="feature">* No Gravity</div>
-            <div class="feature">* Fly</div>
-            <div class="feature">* Head Fly</div>
-            <div class="feature">* B Fly</div>
-            <div class="feature">* Up And Down</div>
-            <div class="feature">* Platforms</div>
-            <div class="feature">* TP Gun</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Player <-`</div>
-            <div class="feature">* LongArms</div>
-            <div class="feature">* Set Name Too No Name</div>
-            <div class="feature">* Change Name</div>
-            <div class="feature">* Change Identity</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Room <-`</div>
-            <div class="feature">* Join Random</div>
-            <div class="feature">* Disconnect</div>
-            <div class="feature">* Reconnect</div>
-            <div class="feature">* Room Info</div>
-            <div class="feature">* Room Stats</div>
-            <div class="feature">* Close Room</div>
-            <div class="feature">* Open Room</div>
-            <div class="feature">* Hide Room</div>
-            <div class="feature">* Show Room</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Exploits <-`</div>
-            <div class="feature">* Spawn Bunny ( NW )</div>
-            <div class="feature">* Spawn Whisk ( NW )</div>
-            <div class="feature">* Set Master</div>
-            <div class="feature">* Crash All</div>
-            <div class="feature">* Clear Cache</div>
-            <div class="feature">* Kick All ( NW )</div>
-            <div class="feature">* Spam Rpcs</div>
-            <div class="feature">* Destroy Players</div>
-            <div class="feature">* Remove All Rpcs</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Settings <-`</div>
-            <div class="feature">* Show FPS</div>
-            <div class="note">-# show fps has a bug will be fixed in later apks js didnt fix it w dis one</div>
-            <div class="feature">* Rgb Gui</div>
-            <div class="feature">* Platform Settings</div>
-            <div class="sub-feature">-# Change Color</div>
-            <div class="sub-feature">-# Change Shape</div>
-            <div class="sub-feature">-# Increase Size</div>
-            <div class="sub-feature">-# Decrease Size</div>
-        </div>
+        <div id="content" class="loading">Loading features...</div>
     </div>
+
+    <script>
+        const FEATURES_URL = 'https://raw.githubusercontent.com/RealshiCuh/gamefeatures/main/main/features.json';
+
+        async function loadFeatures() {
+            try {
+                const response = await fetch(FEATURES_URL);
+                if (!response.ok) throw new Error('Failed to load features');
+                
+                const data = await response.json();
+                displayFeatures(data);
+            } catch (error) {
+                document.getElementById('content').innerHTML = `
+                    <div class="error">
+                        Failed to load features. Please check your configuration.
+                    </div>
+                `;
+                console.error('Error loading features:', error);
+            }
+        }
+
+        function displayFeatures(data) {
+            const container = document.getElementById('content');
+            
+            let html = `<h1>${data.gameName} Features</h1>`;
+            html += '<div class="section"><div class="section-title">-> Features</div></div>';
+            
+            data.sections.forEach(section => {
+                html += `<div class="section">`;
+                html += `<div class="section-title">\`-> ${section.title} <-\`</div>`;
+                
+                section.features.forEach(feature => {
+                    html += `<div class="feature">* ${feature.name}</div>`;
+                    
+                    if (feature.note) {
+                        html += `<div class="note">-# ${feature.note}</div>`;
+                    }
+                    
+                    if (feature.subFeatures) {
+                        feature.subFeatures.forEach(sub => {
+                            html += `<div class="sub-feature">-# ${sub}</div>`;
+                        });
+                    }
+                });
+                
+                html += `</div>`;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        loadFeatures();
+    </script>
 </body>
 </html>
