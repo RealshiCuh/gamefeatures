@@ -84,12 +84,12 @@
     </div>
 
     <script>
-        const FEATURES_URL = 'https://raw.githubusercontent.com/RealshiCuh/gamefeatures/main/features.json';
+        const FEATURES_URL = 'https://raw.githubusercontent.com/RealshiCuh/gamefeatures/main/main/features.json';
 
         async function loadFeatures() {
             try {
                 const response = await fetch(FEATURES_URL);
-                if (!response.ok) throw new Error('Failed to load features');
+                if (!response.ok) throw new Error('Couldnt to load features');
                 
                 const data = await response.json();
                 displayFeatures(data);
