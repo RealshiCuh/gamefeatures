@@ -1,0 +1,73 @@
+{
+  "gameName": "Boda Tag",
+  "sections": [
+    {
+      "title": "Movement",
+      "features": [
+        { "name": "No Gravity" },
+        { "name": "Fly" },
+        { "name": "Head Fly" },
+        { "name": "B Fly" },
+        { "name": "Up And Down" },
+        { "name": "Platforms" },
+        { "name": "TP Gun" }
+      ]
+    },
+    {
+      "title": "Player",
+      "features": [
+        { "name": "LongArms" },
+        { "name": "Set Name Too No Name" },
+        { "name": "Change Name" },
+        { "name": "Change Identity" }
+      ]
+    },
+    {
+      "title": "Room",
+      "features": [
+        { "name": "Join Random" },
+        { "name": "Disconnect" },
+        { "name": "Reconnect" },
+        { "name": "Room Info" },
+        { "name": "Room Stats" },
+        { "name": "Close Room" },
+        { "name": "Open Room" },
+        { "name": "Hide Room" },
+        { "name": "Show Room" }
+      ]
+    },
+    {
+      "title": "Exploits",
+      "features": [
+        { "name": "Spawn Bunny ( NW )" },
+        { "name": "Spawn Whisk ( NW )" },
+        { "name": "Set Master" },
+        { "name": "Crash All" },
+        { "name": "Clear Cache" },
+        { "name": "Kick All ( NW )" },
+        { "name": "Spam Rpcs" },
+        { "name": "Destroy Players" },
+        { "name": "Remove All Rpcs" }
+      ]
+    },
+    {
+      "title": "Settings",
+      "features": [
+        { 
+          "name": "Show FPS",
+          "note": "show fps has a bug will be fixed in later apks js didnt fix it w dis one"
+        },
+        { "name": "Rgb Gui" },
+        { 
+          "name": "Platform Settings",
+          "subFeatures": [
+            "Change Color",
+            "Change Shape",
+            "Increase Size",
+            "Decrease Size"
+          ]
+        }
+      ]
+    }
+  ]
+}
