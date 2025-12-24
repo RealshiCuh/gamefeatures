@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda Tag Features</title>
+    <title>Skys Gorilla Horror</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
@@ -15,7 +15,9 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             padding: 40px 20px;
-            background: transparent;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: crystalShift 15s ease infinite;
             color: #1a1a1a;
             line-height: 1.8;
             position: relative;
@@ -23,7 +25,13 @@
         }
         
         html {
-            background: transparent;
+            background: #667eea;
+        }
+
+        @keyframes crystalShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         #particles {
@@ -58,7 +66,7 @@
             overflow: hidden;
             border-right: 3px solid #1a1a1a;
             white-space: nowrap;
-            animation: typing 2s steps(17) 0.5s forwards, blink 0.75s step-end infinite;
+            animation: typing 2s steps(20) 0.5s forwards, blink 0.75s step-end infinite;
             width: 0;
         }
 
@@ -84,6 +92,7 @@
         .section:nth-child(5) { animation-delay: 3.1s; }
         .section:nth-child(6) { animation-delay: 3.3s; }
         .section:nth-child(7) { animation-delay: 3.5s; }
+        .section:nth-child(8) { animation-delay: 3.7s; }
 
         @keyframes fadeIn {
             from {
@@ -134,67 +143,65 @@
     <div id="particles"></div>
     
     <div class="container">
-        <h1>Boda Tag Features</h1>
+        <h1>Skys Gorilla Horror</h1>
         
         <div class="section">
-            <div class="section-title">-> Features</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Movement <-`</div>
-            <div class="feature">* No Gravity</div>
-            <div class="feature">* Fly</div>
-            <div class="feature">* Head Fly</div>
-            <div class="feature">* B Fly</div>
-            <div class="feature">* Up And Down</div>
-            <div class="feature">* Platforms</div>
-            <div class="feature">* TP Gun</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Player <-`</div>
-            <div class="feature">* LongArms</div>
-            <div class="feature">* Set Name Too No Name</div>
-            <div class="feature">* Change Name</div>
-            <div class="feature">* Change Identity</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Room <-`</div>
-            <div class="feature">* Join Random</div>
-            <div class="feature">* Disconnect</div>
-            <div class="feature">* Reconnect</div>
-            <div class="feature">* Room Info</div>
-            <div class="feature">* Room Stats</div>
-            <div class="feature">* Close Room</div>
-            <div class="feature">* Open Room</div>
-            <div class="feature">* Hide Room</div>
-            <div class="feature">* Show Room</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Exploits <-`</div>
-            <div class="feature">* Spawn Bunny ( NW )</div>
-            <div class="feature">* Spawn Whisk ( NW )</div>
-            <div class="feature">* Set Master</div>
-            <div class="feature">* Crash All</div>
-            <div class="feature">* Clear Cache</div>
-            <div class="feature">* Kick All ( NW )</div>
-            <div class="feature">* Spam Rpcs</div>
-            <div class="feature">* Destroy Players</div>
-            <div class="feature">* Remove All Rpcs</div>
+            <div class="section-title">-> Enabled Mods</div>
         </div>
         
         <div class="section">
             <div class="section-title">`-> Settings <-`</div>
-            <div class="feature">* Show FPS</div>
-            <div class="note">-# show fps has a bug will be fixed in later apks js didnt fix it w dis one</div>
-            <div class="feature">* Rgb Gui</div>
-            <div class="feature">* Platform Settings</div>
-            <div class="sub-feature">-# Change Color</div>
-            <div class="sub-feature">-# Change Shape</div>
-            <div class="sub-feature">-# Increase Size</div>
-            <div class="sub-feature">-# Decrease Size</div>
+            <div class="feature">* Change BG</div>
+            <div class="feature">* Change Outline</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">`-> Movement <-`</div>
+            <div class="feature">* Speedboost</div>
+            <div class="feature">* Long Arms</div>
+            <div class="feature">* Fly</div>
+            <div class="feature">* Velo Fly</div>
+            <div class="feature">* Platforms ( Will Be Changed )</div>
+            <div class="feature">* Noclip</div>
+            <div class="feature">* Zero Gravity</div>
+            <div class="feature">* Fix Gravity</div>
+            <div class="feature">* No Tag Freeze</div>
+            <div class="feature">* Force Tag Freeze</div>
+            <div class="feature">* Up And Down</div>
+            <div class="feature">* Slide Control</div>
+            <div class="feature">* Tigger Fly</div>
+            <div class="feature">* Joystick Fly</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">`-> Room <-`</div>
+            <div class="feature">* Set Master</div>
+            <div class="feature">* Crash All</div>
+            <div class="feature">* Break Room</div>
+            <div class="feature">* Break Tag</div>
+            <div class="feature">* Mat All</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">`-> Visual <-`</div>
+            <div class="feature">* ESP</div>
+            <div class="feature">* Cham Beacons</div>
+            <div class="feature">* Beacons</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">`-> Rig <-`</div>
+            <div class="feature">* Nothing</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">`-> Sound <-`</div>
+            <div class="feature">* Metal Spam</div>
+            <div class="feature">* Crystal Spam</div>
+            <div class="feature">* Wood Spam</div>
+            <div class="feature">* Concrete Spam</div>
+            <div class="feature">* Cloth Spam</div>
+            <div class="feature">* Snow Spam</div>
         </div>
     </div>
 
