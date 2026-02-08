@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Jam</title>
+    <title>Project Stick</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
@@ -94,6 +94,7 @@
         .section:nth-child(6) { animation-delay: 3.5s; }
         .section:nth-child(7) { animation-delay: 3.7s; }
         .section:nth-child(8) { animation-delay: 3.9s; }
+        .section:nth-child(9) { animation-delay: 4.1s; }
 
         @keyframes fadeIn {
             from {
@@ -144,16 +145,16 @@
     <div id="particles"></div>
     
     <div class="container">
-        <h1>Project Jam</h1>
+        <h1>Project Stick</h1>
         
         <div class="section">
             <div class="section-title">`-> Settings <-`</div>
-            <div class="feature">Right Hand Menu</div>
+            <div class="feature">* Right Hand Menu</div>
             <div class="feature">* Notifications</div>
+            <div class="feature">* Clear Notifications</div>
             <div class="feature">* Disconnect Button</div>
-            <div class="feature">*Button Mode: Triggers" : "Button Mode: Normal </div>
-
-
+            <div class="feature">* Button Mode: Triggers / Normal</div>
+            <div class="feature">* Menu Type: GUI / Holdable</div>
         </div>
         
         <div class="section">
@@ -168,9 +169,10 @@
             <div class="feature">* No Clip</div>
             <div class="feature">* Platforms</div>
             <div class="feature">* Checkpoint</div>
-            <div class="feature">* Platforms</div>
             <div class="feature">* Force Tag Freeze</div>
             <div class="feature">* No Tag Freeze</div>
+            <div class="feature">* TP Gun</div>
+            <div class="feature">* Rig Gun</div>
             <div class="feature">* Up And Down</div>
         </div>
         
@@ -181,35 +183,45 @@
             <div class="feature">* Silent Hand Taps</div>
             <div class="feature">* Ghost Monkey</div>
             <div class="feature">* Invis Monkey</div>
-
-
-
         </div>
         
         <div class="section">
             <div class="section-title">`-> Visuals <-`</div>
+            <div class="feature">* ESP</div>
             <div class="feature">* Beacons</div>
+            <div class="feature">* Chams</div>
+            <div class="feature">* Bone ESP</div>
         </div>
         
         <div class="section">
             <div class="section-title">`-> Photon <-`</div>
-            <div class="feature">* Theres Mods Here But Broken Will Be Fixed</div>
-
+            <div class="feature">* Join Random</div>
+            <div class="feature">* Reconnect</div>
+            <div class="feature">* Disable AFK Kick</div>
         </div>
         
         <div class="section">
             <div class="section-title">`-> Overpowered <-`</div>
-            <div class="feature">* Tag All"</div>
+            <div class="feature">* Tag All</div>
             <div class="feature">* Set Master</div>
             <div class="feature">* Slow All</div>
             <div class="feature">* Mat All</div>
             <div class="feature">* Vibrate All</div>
             <div class="feature">* Crash All</div>
-             <div class="feature">* Tag Aura ( Broken )</div>
-
-
+            <div class="feature">* Crash Gun</div>
+            <div class="feature">* Tag Aura</div>
+            <div class="feature">* Force Infection</div>
+            <div class="feature">* Anti Tag</div>
+            <div class="feature">* Rig Spam</div>
+            <div class="feature">* Freeze All (NOT NETWORKED)</div>
+            <div class="feature">* Blind All (NOT NETWORKED)</div>
+            <div class="feature">* Loud Mic</div>
+            <div class="feature">* Mic Spam (NOT NETWORKED)</div>
+            <div class="feature">* Earrape (NOT NETWORKED)</div>
+            <div class="feature">* Spam Hand Taps</div>
+            <div class="feature">* Spam Splash</div>
         </div>
-            </div>
+    </div>
 
     <script>
         const particlesContainer = document.getElementById('particles');
@@ -229,7 +241,7 @@
             const duration = Math.random() * 20 + 15;
             const delay = Math.random() * 5;
             
-            particle.style.animation = `float ${duration}s ${delay}s infinite ease-in-out`;
+            particle.style.animation = `float ${duration}s ${delay}s infinite ease in / out 🤷‍♂️`;
             
             particlesContainer.appendChild(particle);
         }
