@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Tag</title>
+    <title id="page-title">Loading...</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
@@ -24,9 +24,7 @@
             min-height: 100vh;
         }
         
-        html {
-            background: #ffffff;
-        }
+        html { background: #ffffff; }
 
         @keyframes crystalShift {
             0% { background-position: 0% 50%; }
@@ -36,10 +34,8 @@
 
         #particles {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             pointer-events: none;
             z-index: 0;
         }
@@ -86,25 +82,9 @@
             opacity: 0;
         }
 
-        .section:nth-child(1) { animation-delay: 2.5s; }
-        .section:nth-child(2) { animation-delay: 2.7s; }
-        .section:nth-child(3) { animation-delay: 2.9s; }
-        .section:nth-child(4) { animation-delay: 3.1s; }
-        .section:nth-child(5) { animation-delay: 3.3s; }
-        .section:nth-child(6) { animation-delay: 3.5s; }
-        .section:nth-child(7) { animation-delay: 3.7s; }
-        .section:nth-child(8) { animation-delay: 3.9s; }
-        .section:nth-child(9) { animation-delay: 4.1s; }
-
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
         
         .section-title {
@@ -122,145 +102,61 @@
             font-weight: 300;
             color: #3a3a3a;
         }
-        
-        .note {
-            margin-left: 18px;
-            font-size: 13px;
-            color: #888;
-            margin-top: 2px;
-            margin-bottom: 3px;
-            font-weight: 300;
-        }
-        
-        .sub-feature {
-            margin-left: 36px;
-            font-size: 13px;
-            color: #555;
-            margin-bottom: 2px;
-            font-weight: 300;
-        }
     </style>
 </head>
 <body>
     <div id="particles"></div>
-    
-    <div class="container">
-        <h1>Water Tag Modded</h1>
-        
-        <div class="section">
-            <div class="section-title">`-> Settings <-`</div>
-            <div class="feature">* Right Hand Menu</div>
-            <div class="feature">* Notifications</div>
-            <div class="feature">* Clear Notifications</div>
-            <div class="feature">* Disconnect Button</div>
-            <div class="feature">* Button Mode: Triggers / Normal</div>
-            <div class="feature">* Menu Type: GUI / Holdable</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Movement <-`</div>
-            <div class="feature">* Scale Control</div>
-            <div class="feature">* Slide Control</div>
-            <div class="feature">* Fly</div>
-            <div class="feature">* Excel Fly</div>
-            <div class="feature">* Trigger Fly</div>
-            <div class="feature">* Joystick Fly</div>
-            <div class="feature">* Speed Boost</div>
-            <div class="feature">* No Clip</div>
-            <div class="feature">* Platforms</div>
-            <div class="feature">* Platform Gun</div>
-            <div class="feature">* Checkpoint</div>
-            <div class="feature">* Force Tag Freeze</div>
-            <div class="feature">* No Tag Freeze</div>
-            <div class="feature">* TP Gun</div>
-            <div class="feature">* Rig Gun</div>
-            <div class="feature">* Up And Down</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Player <-`</div>
-            <div class="feature">* Unlock All</div>
-            <div class="feature">* Loud Hand Taps</div>
-            <div class="feature">* Silent Hand Taps</div>
-            <div class="feature">* Ghost Monkey</div>
-            <div class="feature">* Invis Monkey</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Visuals <-`</div>
-            <div class="feature">* Beacons</div>
-            <div class="feature">* Chams</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Photon <-`</div>
-            <div class="feature">* Join Random</div>
-            <div class="feature">* Reconnect</div>
-            <div class="feature">* No Tag On Join</div>
-            <div class="feature">* Disable AFK Kick</div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">`-> Overpowered <-`</div>
-            <div class="feature">* Tag All</div>
-            <div class="feature">* Set Master</div>
-            <div class="feature">* Slow All</div>
-            <div class="feature">* Mat All</div>
-            <div class="feature">* Vibrate All</div>
-            <div class="feature">* Crash All</div>
-            <div class="feature">* Crash Gun</div>
-            <div class="feature">* Earrape (NOT NETWORKED)</div>
-        </div>
-    </div>
+    <div class="container" id="content"></div>
 
+    <script src="config.js"></script>
     <script>
+        const container = document.getElementById('content');
+        document.getElementById('page-title').textContent = SITE_CONFIG.title;
+
+        const h1 = document.createElement('h1');
+        h1.textContent = SITE_CONFIG.title;
+        container.appendChild(h1);
+
+        SITE_CONFIG.sections.forEach((section, i) => {
+            const div = document.createElement('div');
+            div.className = 'section';
+            div.style.animationDelay = (2.5 + i * 0.2) + 's';
+
+            const title = document.createElement('div');
+            title.className = 'section-title';
+            title.textContent = '`-> ' + section.name + ' <-`';
+            div.appendChild(title);
+
+            section.features.forEach(feature => {
+                const f = document.createElement('div');
+                f.className = 'feature';
+                f.textContent = '* ' + feature;
+                div.appendChild(f);
+            });
+
+            container.appendChild(div);
+        });
+
+        // Particles
         const particlesContainer = document.getElementById('particles');
-        const particleCount = 40;
-
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            
-            const size = Math.random() * 4 + 2;
-            particle.style.width = size + 'px';
-            particle.style.height = size + 'px';
-            
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            
-            const duration = Math.random() * 20 + 15;
-            const delay = Math.random() * 5;
-            
-            
-            particlesContainer.appendChild(particle);
-        }
-
-        for (let i = 0; i < particleCount; i++) {
-            createParticle();
-        }
-
         const style = document.createElement('style');
         style.textContent = `
             @keyframes float {
-                0%, 100% {
-                    transform: translate(0, 0) scale(1);
-                    opacity: 0.3;
-                }
-                25% {
-                    transform: translate(20px, -30px) scale(1.1);
-                    opacity: 0.6;
-                }
-                50% {
-                    transform: translate(-15px, -60px) scale(0.9);
-                    opacity: 0.4;
-                }
-                75% {
-                    transform: translate(25px, -40px) scale(1.05);
-                    opacity: 0.5;
-                }
+                0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+                25%  { transform: translate(20px, -30px) scale(1.1); opacity: 0.6; }
+                50%  { transform: translate(-15px, -60px) scale(0.9); opacity: 0.4; }
+                75%  { transform: translate(25px, -40px) scale(1.05); opacity: 0.5; }
             }
         `;
         document.head.appendChild(style);
+
+        for (let i = 0; i < 40; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            const size = Math.random() * 4 + 2;
+            p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;`;
+            particlesContainer.appendChild(p);
+        }
     </script>
 </body>
 </html>
