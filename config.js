@@ -1,4 +1,3 @@
-// first time touching JS
 
 const SITE_CONFIG = {
 
@@ -6,7 +5,7 @@ const SITE_CONFIG = {
 
     sections: [
         {
-            name: "Settings",
+            name: "Test",
             features: [
                 "Right Hand Menu",
                 "Notifications",
