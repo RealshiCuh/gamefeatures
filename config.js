@@ -1,7 +1,7 @@
 
 const SITE_CONFIG = {
 
-    title: "Test Tag",
+    title: "Water Tag",
 
     sections: [
         {
@@ -72,6 +72,7 @@ const SITE_CONFIG = {
                 "Vibrate All",
                 "Crash All",
                 "Crash Gun",
+                "Test Gun",
                 "Earrape (NOT NETWORKED)"
             ]
         }
