@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Loading...</title>
+    <title>Loading...</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -45,6 +41,13 @@
             background: rgba(180, 180, 180, 0.5);
             border-radius: 50%;
             pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1);           opacity: 0.2; }
+            25%       { transform: translate(20px, -30px) scale(1.1);  opacity: 0.5; }
+            50%       { transform: translate(-15px, -60px) scale(0.9); opacity: 0.3; }
+            75%       { transform: translate(25px, -40px) scale(1.05); opacity: 0.4; }
         }
 
         .container {
@@ -101,67 +104,140 @@
             font-weight: 300;
             color: #3a3a3a;
         }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1);           opacity: 0.2; }
-            25%       { transform: translate(20px, -30px) scale(1.1);  opacity: 0.5; }
-            50%       { transform: translate(-15px, -60px) scale(0.9); opacity: 0.3; }
-            75%       { transform: translate(25px, -40px) scale(1.05); opacity: 0.4; }
-        }
     </style>
 </head>
 <body>
     <div id="particles"></div>
     <div class="container" id="content"></div>
 
-    <script src="config.js"></script>
     <script>
-        document.getElementById('page-title').textContent = SITE_CONFIG.title;
 
-        const container = document.getElementById('content');
+    const SITE_CONFIG = {
 
-        const h1 = document.createElement('h1');
-        h1.textContent = SITE_CONFIG.title;
-        container.appendChild(h1);
-        h1.style.animation = `typing 2s steps(${SITE_CONFIG.title.length}) 0.5s forwards, blink 0.75s step-end infinite`;
+        title: "Water Tag",
 
-        SITE_CONFIG.sections.forEach((section, i) => {
-            const div = document.createElement('div');
-            div.className = 'section';
-            div.style.animationDelay = (2.5 + i * 0.2) + 's';
+        sections: [
+            {
+                name: "Settings",
+                features: [
+                    "Right Hand Menu",
+                    "Notifications",
+                    "Clear Notifications",
+                    "Disconnect Button",
+                    "Button Mode: Triggers / Normal",
+                    "Menu Type: GUI / Holdable"
+                ]
+            },
+            {
+                name: "Movement",
+                features: [
+                    "Scale Control",
+                    "Slide Control",
+                    "Fly",
+                    "Excel Fly",
+                    "Trigger Fly",
+                    "Joystick Fly",
+                    "Speed Boost",
+                    "No Clip",
+                    "Platforms",
+                    "Platform Gun",
+                    "Checkpoint",
+                    "Force Tag Freeze",
+                    "No Tag Freeze",
+                    "TP Gun",
+                    "Rig Gun",
+                    "Up And Down"
+                ]
+            },
+            {
+                name: "Player",
+                features: [
+                    "Unlock All",
+                    "Loud Hand Taps",
+                    "Silent Hand Taps",
+                    "Ghost Monkey",
+                    "Invis Monkey"
+                ]
+            },
+            {
+                name: "Visuals",
+                features: [
+                    "Beacons",
+                    "Chams"
+                ]
+            },
+            {
+                name: "Photon",
+                features: [
+                    "Join Random",
+                    "Reconnect",
+                    "No Tag On Join",
+                    "Disable AFK Kick"
+                ]
+            },
+            {
+                name: "Overpowered",
+                features: [
+                    "Tag All",
+                    "Set Master",
+                    "Slow All",
+                    "Mat All",
+                    "Vibrate All",
+                    "Crash All",
+                    "Crash Gun",
+                    "Test Gun",
+                    "Earrape (NOT NETWORKED)"
+                ]
+            }
+        ]
 
-            const titleEl = document.createElement('div');
-            titleEl.className = 'section-title';
-            titleEl.textContent = '`-> ' + section.name + ' <-`';
-            div.appendChild(titleEl);
+    };
 
-            section.features.forEach(feature => {
-                const f = document.createElement('div');
-                f.className = 'feature';
-                f.textContent = '* ' + feature;
-                div.appendChild(f);
-            });
+    document.title = SITE_CONFIG.title;
 
-            container.appendChild(div);
+    const container = document.getElementById('content');
+
+    const h1 = document.createElement('h1');
+    h1.textContent = SITE_CONFIG.title;
+    container.appendChild(h1);
+    h1.style.animation = `typing 2s steps(${SITE_CONFIG.title.length}) 0.5s forwards, blink 0.75s step-end infinite`;
+
+    SITE_CONFIG.sections.forEach((section, i) => {
+        const div = document.createElement('div');
+        div.className = 'section';
+        div.style.animationDelay = (2.5 + i * 0.2) + 's';
+
+        const titleEl = document.createElement('div');
+        titleEl.className = 'section-title';
+        titleEl.textContent = '`-> ' + section.name + ' <-`';
+        div.appendChild(titleEl);
+
+        section.features.forEach(feature => {
+            const f = document.createElement('div');
+            f.className = 'feature';
+            f.textContent = '* ' + feature;
+            div.appendChild(f);
         });
 
-        const particlesContainer = document.getElementById('particles');
+        container.appendChild(div);
+    });
 
-        for (let i = 0; i < 40; i++) {
-            const p = document.createElement('div');
-            p.className = 'particle';
-            const size     = Math.random() * 4 + 2;
-            const duration = Math.random() * 20 + 15;
-            const delay    = -(Math.random() * 10);    
-            p.style.cssText = `
-                width:  ${size}px;
-                height: ${size}px;
-                left:   ${Math.random() * 100}%;
-                top:    ${Math.random() * 100}%;
-                animation: float ${duration}s ${delay}s ease-in-out infinite;
-            `;
-            particlesContainer.appendChild(p);
-        }
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 40; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size     = Math.random() * 4 + 2;
+        const duration = Math.random() * 20 + 15;
+        const delay    = -(Math.random() * 10);
+        p.style.cssText = `
+            width:  ${size}px;
+            height: ${size}px;
+            left:   ${Math.random() * 100}%;
+            top:    ${Math.random() * 100}%;
+            animation: float ${duration}s ${delay}s ease-in-out infinite;
+        `;
+        particlesContainer.appendChild(p);
+    }
     </script>
 </body>
-</html>
+</html>v
