@@ -1,7 +1,7 @@
 
 const SITE_CONFIG = {
 
-    title: "Water Tag Modded",
+    title: "Test Tag",
 
     sections: [
         {
