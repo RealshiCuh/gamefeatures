@@ -11,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             padding: 40px 20px;
@@ -23,12 +23,12 @@
             position: relative;
             min-height: 100vh;
         }
-        
+
         html { background: #ffffff; }
 
         @keyframes crystalShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
@@ -42,18 +42,18 @@
 
         .particle {
             position: absolute;
-            background: rgba(200, 200, 200, 0.4);
+            background: rgba(180, 180, 180, 0.5);
             border-radius: 50%;
             pointer-events: none;
         }
-        
+
         .container {
             max-width: 650px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
-        
+
         h1 {
             font-size: 32px;
             margin-bottom: 40px;
@@ -62,20 +62,19 @@
             overflow: hidden;
             border-right: 3px solid #1a1a1a;
             white-space: nowrap;
-            animation: typing 2s steps(20) 0.5s forwards, blink 0.75s step-end infinite;
             width: 0;
         }
 
         @keyframes typing {
             from { width: 0; }
-            to { width: 100%; }
+            to   { width: 100%; }
         }
 
         @keyframes blink {
             from, to { border-color: transparent; }
-            50% { border-color: #1a1a1a; }
+            50%      { border-color: #1a1a1a; }
         }
-        
+
         .section {
             margin-bottom: 24px;
             animation: fadeIn 0.6s ease-out forwards;
@@ -86,7 +85,7 @@
             from { opacity: 0; transform: translateY(10px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-        
+
         .section-title {
             font-size: 16px;
             margin-bottom: 8px;
@@ -94,13 +93,20 @@
             color: #2a2a2a;
             letter-spacing: 0.3px;
         }
-        
+
         .feature {
             margin-left: 18px;
             margin-bottom: 3px;
             font-size: 14px;
             font-weight: 300;
             color: #3a3a3a;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1);           opacity: 0.2; }
+            25%       { transform: translate(20px, -30px) scale(1.1);  opacity: 0.5; }
+            50%       { transform: translate(-15px, -60px) scale(0.9); opacity: 0.3; }
+            75%       { transform: translate(25px, -40px) scale(1.05); opacity: 0.4; }
         }
     </style>
 </head>
@@ -110,22 +116,24 @@
 
     <script src="config.js"></script>
     <script>
-        const container = document.getElementById('content');
         document.getElementById('page-title').textContent = SITE_CONFIG.title;
+
+        const container = document.getElementById('content');
 
         const h1 = document.createElement('h1');
         h1.textContent = SITE_CONFIG.title;
         container.appendChild(h1);
+        h1.style.animation = `typing 2s steps(${SITE_CONFIG.title.length}) 0.5s forwards, blink 0.75s step-end infinite`;
 
         SITE_CONFIG.sections.forEach((section, i) => {
             const div = document.createElement('div');
             div.className = 'section';
             div.style.animationDelay = (2.5 + i * 0.2) + 's';
 
-            const title = document.createElement('div');
-            title.className = 'section-title';
-            title.textContent = '`-> ' + section.name + ' <-`';
-            div.appendChild(title);
+            const titleEl = document.createElement('div');
+            titleEl.className = 'section-title';
+            titleEl.textContent = '`-> ' + section.name + ' <-`';
+            div.appendChild(titleEl);
 
             section.features.forEach(feature => {
                 const f = document.createElement('div');
@@ -138,22 +146,20 @@
         });
 
         const particlesContainer = document.getElementById('particles');
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float {
-                0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-                25%  { transform: translate(20px, -30px) scale(1.1); opacity: 0.6; }
-                50%  { transform: translate(-15px, -60px) scale(0.9); opacity: 0.4; }
-                75%  { transform: translate(25px, -40px) scale(1.05); opacity: 0.5; }
-            }
-        `;
-        document.head.appendChild(style);
 
         for (let i = 0; i < 40; i++) {
             const p = document.createElement('div');
             p.className = 'particle';
-            const size = Math.random() * 4 + 2;
-            p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;`;
+            const size     = Math.random() * 4 + 2;
+            const duration = Math.random() * 20 + 15;
+            const delay    = -(Math.random() * 10);    
+            p.style.cssText = `
+                width:  ${size}px;
+                height: ${size}px;
+                left:   ${Math.random() * 100}%;
+                top:    ${Math.random() * 100}%;
+                animation: float ${duration}s ${delay}s ease-in-out infinite;
+            `;
             particlesContainer.appendChild(p);
         }
     </script>
