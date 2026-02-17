@@ -5,7 +5,7 @@ const SITE_CONFIG = {
 
     sections: [
         {
-            name: "Test",
+            name: "Settings",
             features: [
                 "Right Hand Menu",
                 "Notifications",
